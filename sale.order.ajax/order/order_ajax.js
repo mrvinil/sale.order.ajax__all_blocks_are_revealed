@@ -1719,7 +1719,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 
 			this.checkNotifications();
-
+			
+			// 1) Включаем редактирование блоков «Регион» и «Пользователь»: комментируем строки
 			// if (this.activeSectionId !== this.regionBlockNode.id)
 			// 	this.editFadeRegionContent(this.regionBlockNode.querySelector('.bx-soa-section-content'));
 			//
@@ -2248,7 +2249,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					})
 				);
 			}
-
+			
+			// 2) Удаляем кнопки «Далее» и «Назад»: комментируем строки
 			// node.appendChild(
 			// 	BX.create('DIV', {
 			// 		props: {className: 'row bx-soa-more'},
@@ -2440,6 +2442,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		/**
 		 * Edit order block nodes with this.result/this.params data
 		 */
+		// 5) Удаляем ссылки «Изменить»: в конец функции editOrder добавляем код (код смотри в конце функции)
 		editOrder: function()
 		{
 			if (!this.orderBlockNode || !this.result)
@@ -2476,6 +2479,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			this.showErrors(this.result.ERROR, false);
 			this.showWarnings();
 			
+			// добавили этот код ========
 			var editSteps = this.orderBlockNode.querySelectorAll('.bx-soa-editstep'), i;
 			for (i in editSteps)
 			{
@@ -2484,6 +2488,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					BX.remove(editSteps[i]);
 				}
 			}
+			// =========
 		},
 
 		/**
@@ -2502,7 +2507,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			var active = true,
 				titleNode = section.querySelector('.bx-soa-section-title-container'),
 				editButton, errorContainer;
-
+			
+			// 4) Удаляем обработчики при клике на заголовки: комментируем строки
 			// BX.unbindAll(titleNode);
 			// if (this.result.SHOW_AUTH)
 			// {
